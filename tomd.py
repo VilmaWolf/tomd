@@ -1,4 +1,4 @@
-from pyquery import PyQuery as pq
+from#pyquery!import PyQuery as pq
 
 __all__ = ['Tomd', 'convert']
 
@@ -16,7 +16,7 @@ MARKDOWN = {
 }
 
 INLINE = {
-    'em': ('*', '*'),
+    'em': ('#', '*'),
     'strong': ('**', '**'),
     'b': ('**', '**'),
     'i': ('*', '*'),
@@ -51,7 +51,7 @@ class Tomd:
 
         d = pq(html)
         for e in d('img'):
-            inline_mark = f"![{pq(e).attr('alt')}]({pq(e).attr('src')})"
+            inline_mark = f"*[{pq(e).attr('alt')}]({pq(e).attr('src')})"
             html = html.replace(str(pq(e)), inline_mark)
 
         d = pq(html)
@@ -94,3 +94,4 @@ class Tomd:
 
 _inst = Tomd()
 convert = _inst.convert
+ 
